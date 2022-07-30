@@ -1,7 +1,7 @@
 import {SvgPlus} from "../SvgPlus/4.js"
-import {initializeApp} from './Firebase/firebase-app.js'
-import {getAuth, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged} from './Firebase/firebase-auth.js'
-import {getDatabase, child, push, ref, update, get, onValue, onChildAdded, onChildChanged, onChildRemoved, set, off} from '.Firebase/firebase-database.js'
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js'
+import {getAuth, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js'
+import {getDatabase, child, push, ref, update, get, onValue, onChildAdded, onChildChanged, onChildRemoved, set, off} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-database.js'
 
 let APP = null;
 let DB = null;
@@ -35,7 +35,6 @@ class FireUser extends SvgPlus {
       content: this._templates.loader,
     })
   }
-
   async configureFirebase(){
     let config = this.getAttribute("config");
     config = await (await fetch(config)).json();
