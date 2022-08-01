@@ -32,6 +32,7 @@ class FireUser extends SvgPlus {
     });
     this.loader = this.createChild("div", {
       class: "loader",
+      name: "loader",
       content: this._templates.loader,
     })
   }
@@ -157,4 +158,4 @@ class FireUser extends SvgPlus {
 
 SvgPlus.defineHTMLElement(FireUser);
 
-export {DB, child, push, ref, update, get, onChildAdded, onChildChanged, onChildRemoved, set}
+export {fireUser, DB, child, push, ref, update, get, onChildAdded, onChildChanged, onChildRemoved, set}

@@ -1,5 +1,5 @@
 ```HTML
-<fire-user users-ref = "doxs/users/" config = 'config_directory.json'>
+<fire-user users-ref = "app/users/" root-ref = "app/users/demo" config = 'config_directory.json'>
 
   <div name = "loader">
     Loading
