@@ -36,6 +36,7 @@ class FireUser extends SvgPlus {
       content: this._templates.loader,
     })
   }
+
   async configureFirebase(){
     let config = this.getAttribute("config");
     config = await (await fetch(config)).json();
@@ -75,15 +76,24 @@ class FireUser extends SvgPlus {
   }
 
   _onuser(user){
+    if (this.user && this.user.uid == user.uid) {
+      // same user
+      return;
+    }
+
     this.user = user;
     this.userFrame.innerHTML = this._templates.user.replace(/{{([^}]*)}}/g, (a, b) => {
       return user[b];
     });
+
     let signouts = this.querySelectorAll('[signout]');
     for (let el of signouts) el.onclick = () => {this.signOut()};
+
     const event = new Event("user");
+    event.user = user;
     this.dispatchEvent(event);
   }
+
   _onleave(){
     this.user = null;
     this.userFrame.innerHTML = this._templates["no-user"];
