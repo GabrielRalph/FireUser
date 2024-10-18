@@ -1,6 +1,6 @@
 import {SvgPlus} from "../SvgPlus/4.js"
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js'
-import {getAuth, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js'
+import {getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js'
 import {getDatabase, child, push, ref, update, get, onValue, onChildAdded, onChildChanged, onChildRemoved, set, off} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-database.js'
 
 let APP = null;
@@ -105,7 +105,7 @@ class FireUser extends SvgPlus {
 
   signIn(){
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(AUTH, provider);
+    signInWithPopup(AUTH, provider);
   }
   signOut(){
     AUTH.signOut();
